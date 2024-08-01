@@ -151,7 +151,8 @@
       border: 3px solid #fff;
       text-align: center;
     }
-    #result-message-label{
+
+    #result-message-label {
       text-align: center;
       color: #fff;
       font-size: 20px;
@@ -209,7 +210,7 @@
         <div class="grid-item item-eight" id="item-eight" onclick="showResult('8')">8</div>
         <div class="grid-item item-nine" id="item-nine" onclick="showResult('9')">9</div>
         <div class="grid-item item-nine" id="item-zero" onclick="showResult('0')">0</div>
-        <div class="grid-item btn-item-delete" id="item-delete" onclick="showResult('del')">X</div>
+        <div class="grid-item btn-item-delete" id="item-delete" onclick="showResult('delete')">X</div>
         <div class="grid-item btn-item-submit" id="item-result" onclick="showResult('result')">Submit</div>
         <div class="grid-item btn-item-clear" id="item-clear" onclick="showResult('clear')">Clear</div>
       </div>
@@ -238,6 +239,7 @@
       const result_message_checkbox = document.getElementById("result-message-checkbox");
       const result_message_label = document.getElementById("result-message-label");
 
+      //Submit button code
       if (value == "result" && input_pin_textbox.value.length == "6" && input_pin_textbox.value != "") {
         if (input_pin_textbox.value.toString() == show_label_generate_number.innerText) {
           result_message_div.style.visibility = "visible";
@@ -252,9 +254,34 @@
         }
       } else {
         console.log("Please enter six digits number!");
-        result_message_div.style.visibility = "visible";
-        result_message_checkbox.checked = true;
+        result_message_div.style.visibility = "hidden";
+        result_message_checkbox.checked = false;
         result_message_label.innerHTML = "Please enter six digits number!"
+      }
+
+      //Clear button code
+      if (value == "clear") {
+        input_pin_textbox.value = null;
+        result_message_div.style.visibility = "hidden";
+        result_message_checkbox.checked = false;
+      }
+
+      //Delete button code
+      if (value == "delete" && input_pin_textbox.value != null) {
+        input_pin_textbox.value = input_pin_textbox.value.substring(0, input_pin_textbox.value.length - 1);
+      }
+
+      //Number button code
+      let number_in_textbox_input = input_pin_textbox.value;
+      if (value == "1" || value == "2" || value == "3" || value == "4" || value == "5" || value == "6" || value == "7" || value == "8" || value == "9" || value == "0") {
+        if (number_in_textbox_input == null) {
+          number_in_textbox_input = value;
+        } else {
+          console.log(number_in_textbox_input.length)
+          if (number_in_textbox_input.length < "6")
+            number_in_textbox_input = number_in_textbox_input + value;
+        }
+        input_pin_textbox.value = number_in_textbox_input;
       }
     }
 
