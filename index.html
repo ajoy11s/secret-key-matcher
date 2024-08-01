@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet">
+  <title>Secret Key Matcher</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: white;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: full;
+      height: 100vh;
+    }
+
+    .main_div {
+      width: 1056px;
+      min-height: 500px;
+      align-items: center;
+      align-content: center;
+      text-align: center;
+      background-color: white;
+    }
+
+    .left-grid-container {
+      float: left;
+      width: 525px;
+      min-height: 500px;
+      background-color: black;
+      margin-right: 3px;
+      border-radius: 10px 0px 0px 10px;
+      align-content: center;
+    }
+
+    .right-grid-container {
+      gap: 0px;
+      background-color: black;
+      padding: 10px;
+      width: 525px;
+      min-height: 500px;
+      margin-left: 3px;
+      border-radius: 0px 10px 10px 0px;
+      float: right;
+      align-content: center;
+    }
+
+    .number-grid-container {
+      display: grid;
+      gap: 10px;
+      background-color: black;
+      padding: 15px;
+      grid-template-columns: 75px 75px 75px 75px;
+      justify-content: center;
+    }
+
+    .grid-item {
+      background-color: #333333;
+      text-align: center;
+      width: 80px;
+      height: 50px;
+      padding: 10px;
+      font-size: 25px;
+      font-weight: bold;
+      border-radius: 5px;
+      font-family: "Open Sans", sans-serif;
+      font-size: 15px;
+      font-style: normal;
+      display: inline-block;
+      margin-bottom: 0;
+      font-weight: 600;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: middle;
+      -ms-touch-action: manipulation;
+      touch-action: manipulation;
+      cursor: pointer;
+      background-image: none;
+      border: 1px solid transparent;
+      padding: 12px;
+      line-height: 1.42857143;
+      border-radius: 4px;
+    }
+
+    .item-div-input {
+      grid-column: 1 / span 4;
+      grid-row: 1;
+    }
+
+    label {
+      font-size: 25px;
+      color: white;
+      padding-left: 0px;
+    }
+
+    .input-number {
+      height: 70px;
+      width: 200px;
+      background-color: #333333;
+      border-radius: 5px;
+      border-color: #fff;
+      padding-right: 0px;
+      font-size: 35px;
+      text-align: center;
+    }
+
+    .btn-item-submit {
+      color: #fff;
+      background-color: #5cb85c;
+      border-color: #4cae4c;
+    }
+
+    .btn-item-delete {
+      color: #fff;
+      background-color: #cced38;
+      border-color: #c5ec35;
+    }
+
+    .btn-item-clear {
+      color: #fff;
+      background-color: #d41c3e;
+      border-color: #c93535;
+    }
+
+    #btn-generate {
+      background-color: #007BFF;
+      height: 65px;
+      width: 175px;
+      font-size: 18px;
+    }
+
+    .label-generate-number {
+      height: 50px;
+      width: 175px;
+      font-size: 30px;
+      background-color: #333333;
+      border-radius: 5px;
+      border: 3px solid #fff;
+      text-align: center;
+    }
+    #result-message-label{
+      text-align: center;
+      color: #fff;
+      font-size: 20px;
+      font-weight: 400;
+      font-family: "Open Sans", sans-serif;
+    }
+
+    @media only screen and (max-width: 800px) {
+      body {
+        background-color: black;
+      }
+
+      main {
+        min-height: 40vh;
+        display: grid;
+        place-items: center;
+      }
+
+      section {
+        width: 350px;
+      }
+
+      .main_div {
+        width: 400px;
+        align-items: center;
+        align-content: center;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Grid Test -->
+  <div class="main_div">
+    <div class="left-grid-container">
+      <div><button type="button" class="btn btn-primary" id="btn-generate"
+          onclick="doClickGenerateNumber()">Generate<br />Secret Key</button></div>
+      <div style="padding: 15px;"><label name="generatePin" id="show-label-generate-number"
+          class="label-generate-number" maxlength="6" /></div>
+    </div>
+    <div class="right-grid-container">
+      <div class="item-div-input" id="item-one" onclick="showResult('1')">
+        <label>Enter PIN:</label>
+        <input type="text" name="inputPin" class="input-number" id="input-pin-textbox" maxlength="6" />
+      </div>
+      <div class="number-grid-container">
+        <div class="grid-item item-one" id="item-one" onclick="showResult('1')">1</div>
+        <div class="grid-item item-two" id="item-two" onclick="showResult('2')">2</div>
+        <div class="grid-item item-three" id="item-three" onclick="showResult('3')">3</div>
+        <div class="grid-item item-four" id="item-four" onclick="showResult('4')">4</div>
+        <div class="grid-item item-five" id="item-five" onclick="showResult('5')">5</div>
+        <div class="grid-item item-six" id="item-six" onclick="showResult('6')">6</div>
+        <div class="grid-item item-seven" id="item-seven" onclick="showResult('7')">7</div>
+        <div class="grid-item item-eight" id="item-eight" onclick="showResult('8')">8</div>
+        <div class="grid-item item-nine" id="item-nine" onclick="showResult('9')">9</div>
+        <div class="grid-item item-nine" id="item-zero" onclick="showResult('0')">0</div>
+        <div class="grid-item btn-item-delete" id="item-delete" onclick="showResult('del')">X</div>
+        <div class="grid-item btn-item-submit" id="item-result" onclick="showResult('result')">Submit</div>
+        <div class="grid-item btn-item-clear" id="item-clear" onclick="showResult('clear')">Clear</div>
+      </div>
+      <div id="result-message-div" style="visibility: hidden;">
+        <input type="checkbox" id="result-message-checkbox" name="result-message-checkbox" disabled />
+        <label for="result-message-checkbox" id="result-message-label"></label><br>
+      </div>
+    </div>
+  </div>
+  <!-- <script src="counter.js"></script> -->
+  <script>
+    function doClickGenerateNumber() {
+      const show_label_generate_number = document.getElementById("show-label-generate-number");
+      let generate_number = Math.random() * 1000000;
+      generate_number = Math.floor(generate_number);
+      if (generate_number.toString().length == 6) {
+        show_label_generate_number.innerText = generate_number.toString();
+      }
+    }
+
+    function showResult(value) {
+      const input_pin_textbox = document.getElementById("input-pin-textbox");
+      const show_label_generate_number = document.getElementById("show-label-generate-number");
+
+      const result_message_div = document.getElementById("result-message-div");
+      const result_message_checkbox = document.getElementById("result-message-checkbox");
+      const result_message_label = document.getElementById("result-message-label");
+
+      if (value == "result" && input_pin_textbox.value.length == "6" && input_pin_textbox.value != "") {
+        if (input_pin_textbox.value.toString() == show_label_generate_number.innerText) {
+          result_message_div.style.visibility = "visible";
+          result_message_checkbox.checked = true;
+          result_message_label.innerHTML = "Your Secret Key is matched!"
+          console.log("Your Secret Key is matched!");
+        } else {
+          result_message_div.style.visibility = "visible";
+          result_message_checkbox.checked = false;
+          result_message_label.innerHTML = "Your Secret Key is not matched!"
+          console.log("Your Secret Key is not matched!");
+        }
+      } else {
+        console.log("Please enter six digits number!");
+        result_message_div.style.visibility = "visible";
+        result_message_checkbox.checked = true;
+        result_message_label.innerHTML = "Please enter six digits number!"
+      }
+    }
+
+  </script>
+</body>
+
+</html>
