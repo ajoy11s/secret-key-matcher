@@ -163,70 +163,77 @@
     @media only screen and (max-width: 700px) {
       body {
         background-color: black;
+        width: 500px;
       }
+
       .main_div {
-        width: 700px;
-        min-height: 1010px;
+        width: 400px;
+        min-height: 1060px;
         align-items: center;
         align-content: center;
         text-align: center;
         background-color: white;
       }
-      .left-grid-container {
-      width: 700px;
-      min-height: 450px;
-      background-color: red;
-      border-radius: 10px 0px 0px 10px;
-      align-content: center;
-      justify-content: center;
-    }
-    .left-grid-container-div-first{
-      float: left;
-    }
-    .left-grid-container-div-two{
-      float: left;
-      padding-top: 10px;
-    }
 
-    .right-grid-container {
-      gap: 0px;
-      background-color: black;
-      padding: 10px;
-      width: 700px;
-      min-height: 580px;
-      border-radius: 0px 10px 10px 0px;
-      align-content: center;
-      padding-top: 10px;
-    }
+       .left-grid-container {
+        position: relative;
+        width: 400px;
+        min-height: 520px;
+        background-color: red;
+        border-radius: 10px 0px 0px 10px;
+      } 
 
-    .number-grid-container {
-      display: grid;
-      gap: 10px;
-      background-color: black;
-      padding: 15px;
-      grid-template-columns: 75px 75px;
-      justify-content: center;
-    }
-    .item-div-input {
-      grid-column: 1 / span 2;
-      grid-row: 1;
-    }
-    label {
-      font-size: 15px;
-      color: white;
-      padding-left: 0px;
-    }
+       .left-grid-container-div-first {
+        min-height: 250px;
+        margin: 5px auto;
+      }
 
-    .input-number {
-      height: 70px;
-      width: 100px;
-      background-color: #333333;
-      border-radius: 5px;
-      border-color: #fff;
-      padding-right: 0px;
-      font-size: 35px;
-      text-align: center;
-    }
+      .left-grid-container-div-two {
+        margin: 5px auto;
+        min-height: 250px;
+      }  
+
+      .right-grid-container {
+        gap: 0px;
+        background-color: burlywood;
+        padding: 10px;
+        width: 400px;
+        min-height: 525px;
+        border-radius: 0px 10px 10px 0px;
+        align-content: center;
+        padding-top: 10px;
+      }
+
+      .number-grid-container {
+        display: grid;
+        gap: 10px;
+        background-color: blue;
+        padding: 15px;
+        grid-template-columns: 75px 75px;
+        justify-content: center;
+      }
+
+      .item-div-input {
+        grid-column: 1 / span 2;
+        grid-row: 1;
+      }
+
+      label {
+        font-size: 15px;
+        color: white;
+        padding-left: 0px;
+      }
+
+      .input-number {
+        height: 70px;
+        width: 100px;
+        background-color: #333333;
+        border-radius: 5px;
+        border-color: #fff;
+        padding-right: 0px;
+        font-size: 35px;
+        text-align: center;
+      }
 
     }
   </style>
@@ -236,13 +243,16 @@
   <!-- Grid Test -->
   <div class="main_div">
     <div class="left-grid-container">
-      <div class="left-grid-container-div-first"><button type="button" class="btn btn-primary" id="btn-generate"
-          onclick="doClickGenerateNumber()">Generate<br />Secret Key</button></div>
-      <div style="padding: 15px;" class="left-grid-container-div-two"><label name="generatePin" id="show-label-generate-number"
-          class="label-generate-number" maxlength="6" /></div>
+      <div class="left-grid-container-div-first">
+        <button type="button" class="btn btn-primary" id="btn-generate"
+          onclick="doClickGenerateNumber()">Generate<br />Secret Key</button>
+      </div>
+      <div style="padding: 15px;" class="left-grid-container-div-two">
+        <label name="generatePin" id="show-label-generate-number" class="label-generate-number" maxlength="6" />
+      </div>
     </div>
     <div class="right-grid-container">
-      <div class="item-div-input" id="item-one" onclick="showResult('1')">
+      <div class="item-div-input" id="item-one">
         <label>Enter PIN:</label>
         <input type="text" name="inputPin" class="input-number" id="input-pin-textbox" maxlength="6" />
       </div>
