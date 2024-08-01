@@ -160,27 +160,74 @@
       font-family: "Open Sans", sans-serif;
     }
 
-    @media only screen and (max-width: 800px) {
+    @media only screen and (max-width: 700px) {
       body {
         background-color: black;
       }
-
-      main {
-        min-height: 40vh;
-        display: grid;
-        place-items: center;
-      }
-
-      section {
-        width: 350px;
-      }
-
       .main_div {
-        width: 400px;
+        width: 700px;
+        min-height: 1010px;
         align-items: center;
         align-content: center;
         text-align: center;
+        background-color: white;
       }
+      .left-grid-container {
+      width: 700px;
+      min-height: 450px;
+      background-color: red;
+      border-radius: 10px 0px 0px 10px;
+      align-content: center;
+      justify-content: center;
+    }
+    .left-grid-container-div-first{
+      float: left;
+    }
+    .left-grid-container-div-two{
+      float: left;
+      padding-top: 10px;
+    }
+
+    .right-grid-container {
+      gap: 0px;
+      background-color: black;
+      padding: 10px;
+      width: 700px;
+      min-height: 580px;
+      border-radius: 0px 10px 10px 0px;
+      align-content: center;
+      padding-top: 10px;
+    }
+
+    .number-grid-container {
+      display: grid;
+      gap: 10px;
+      background-color: black;
+      padding: 15px;
+      grid-template-columns: 75px 75px;
+      justify-content: center;
+    }
+    .item-div-input {
+      grid-column: 1 / span 2;
+      grid-row: 1;
+    }
+    label {
+      font-size: 15px;
+      color: white;
+      padding-left: 0px;
+    }
+
+    .input-number {
+      height: 70px;
+      width: 100px;
+      background-color: #333333;
+      border-radius: 5px;
+      border-color: #fff;
+      padding-right: 0px;
+      font-size: 35px;
+      text-align: center;
+    }
+
     }
   </style>
 </head>
@@ -189,9 +236,9 @@
   <!-- Grid Test -->
   <div class="main_div">
     <div class="left-grid-container">
-      <div><button type="button" class="btn btn-primary" id="btn-generate"
+      <div class="left-grid-container-div-first"><button type="button" class="btn btn-primary" id="btn-generate"
           onclick="doClickGenerateNumber()">Generate<br />Secret Key</button></div>
-      <div style="padding: 15px;"><label name="generatePin" id="show-label-generate-number"
+      <div style="padding: 15px;" class="left-grid-container-div-two"><label name="generatePin" id="show-label-generate-number"
           class="label-generate-number" maxlength="6" /></div>
     </div>
     <div class="right-grid-container">
