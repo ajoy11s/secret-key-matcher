@@ -14,11 +14,10 @@ ES6 is the six version of JavaScript and was released on 2015.</p>
 <h2>2. What is Event Bubble and Event Delegation in JS?</h2>
 <u><b>Event Bubble:</b></u>
 <br/>
-<p>Event Bubbling means that the event propagates from the target element where the user clicked.By default, all events bubble.Mind that, we have a div which is a parent of a span which in turn is a parent of the button element. Due to event bubbling, when
+<p>Event Bubbling means that the event propagates from the target element where the user clicked.By default, all events bubble.Lets say, we have a div which is a parent of a span which in turn is a parent of the button element. Due to event bubbling, when
     the button receives an event, say click, that event bubbles up the tree, so span and div will respectively receive the event also.</p>
-
 <u><b>Event Delegation:</b></u>
-<p>Event delegation, instead of handling the click event on the button, we can handle it on the div. The idea is that we "delegate" the handling of an event to a different element (in this case, the div, which is a parent element) instead of the actual element
+<p>Lets say,div is a parent of child one paragraph and sub child button then  event delegation, instead of handling the click event on the button, we can handle it on the div. The idea is that we "delegate" the handling of an event to a different element (in this case, the div, which is a parent element) instead of the actual element
     (the button) that received the event.</p>
 
 
