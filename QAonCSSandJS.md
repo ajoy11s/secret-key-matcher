@@ -1,7 +1,6 @@
 <h2>1. What is ES6 and what are the new features introduced in ES6?</h2> 
 <p>ES6 is the 6th version of the ECMAScript programming language, It’s also known as ECMAScript2015 or ECMAScript6.
 ES6 is the six version of JavaScript and was released on 2015.</p>
-
 <u><b>ES6 New features:</b></u>
 <br/>
 <ul>
@@ -13,7 +12,6 @@ ES6 is the six version of JavaScript and was released on 2015.</p>
 
 <h2>2. What is Event Bubble and Event Delegation in JS?</h2>
 <u><b>Event Bubble:</b></u>
-<br/>
 <p>Event Bubbling means that the event propagates from the target element where the user clicked.By default, all events bubble.Lets say, we have a div which is a parent of a span which in turn is a parent of the button element. Due to event bubbling, when
     the button receives an event, say click, that event bubbles up the tree, so span and div will respectively receive the event also.</p>
 <u><b>Event Delegation:</b></u>
