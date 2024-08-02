@@ -25,8 +25,7 @@ ES6 is the six version of JavaScript and was released on 2015.</p>
 <h2>3. What is the difference between localstorage , session storage and cookies?</h2>
 <u><b>Local Storage:</b></u>
 <p>If we want some data in the browser, we often use local storage objects.</p>
-
-<u><b>ESession Storage: </b></u>
+<u><b>Session Storage:</b></u>
 <p>Session storage is used if the user closes that particular tab or season then we want to delete the data.</P>
 <u><b>Cookies:</b></u>.
 <p>Cookies are used if we want to keep them on the server.</p>
@@ -36,12 +35,10 @@ ES6 is the six version of JavaScript and was released on 2015.</p>
 <p>Displays as element as an inline elements. Any heights and width properties will have no effect.</p>
 <p>.inline-element { display: inline; width: 500px; height: 500px; }
     <b>/*  won't have any effect width and height for display: inline */</b></p>
-
 <u><b>Display Inline Block (display:inline-block):</b></u>
 <p>Displays an element as an inline-block element. We can set any height and width values.</p>
 <p>.inline-block-element { display: inline-block; width: 500px; height: 800px; }
     <b>/* height and width will work for display: inline-block */</b></p>
-
 <u><b>Display Block (display:block):</b></u>
 <p>Displays an element as an block element. We can set any height and width values.It starts on a new line and take up the whole width and we can set width and height values.</p>
 
