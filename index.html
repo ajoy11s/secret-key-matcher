@@ -164,8 +164,8 @@
       font-family: "Open Sans", sans-serif;
     }
 
-     /* Tablet/Medium Screen responsive code  */
-     @media only screen and (max-width: 1200px) {
+    /* Tablet/Medium Screen responsive code  */
+    @media only screen and (max-width: 1200px) {
       body {
         background-color: white;
         width: 1010px;
@@ -380,7 +380,8 @@
     <div class="right-grid-container">
       <div class="item-div-input">
         <div class="pin-label-title-div"><label>Enter PIN:</label></div>
-        <div><input type="text" name="inputPin" class="pin-input-textbox" id="input-pin-textbox" maxlength="6" /></div>
+        <div><input type="text" name="inputPin" class="pin-input-textbox" id="input-pin-textbox" maxlength="6"
+            onkeypress="myOnKeyPressEvent(event);" /></div>
       </div>
       <div class="number-grid-container">
         <div class="grid-item item-one" id="item-one" onclick="showResult('1')">1</div>
@@ -421,25 +422,33 @@
       const result_message_div = document.getElementById("result-message-div");
       const result_message_checkbox = document.getElementById("result-message-checkbox");
       const result_message_label = document.getElementById("result-message-label");
-
+      console.log("Test:" + input_pin_textbox.value.length)
       //Submit button code
-      if (value == "result" && input_pin_textbox.value.length == "6" && input_pin_textbox.value != "") {
-        if (input_pin_textbox.value.toString() == show_label_generate_number.innerText) {
-          result_message_div.style.visibility = "visible";
-          result_message_checkbox.checked = true;
-          result_message_label.innerHTML = "Your Secret Key is matched!"
-          console.log("Your Secret Key is matched!");
-        } else {
+      if (value == "result") {
+        if (input_pin_textbox.value != "") {
+          if (input_pin_textbox.value.toString() == show_label_generate_number.innerText) {
+            result_message_div.style.visibility = "visible";
+            result_message_checkbox.checked = true;
+            result_message_label.innerHTML = "Your Secret Key is matched!"
+            console.log("Your Secret Key is matched!");
+          } else if (input_pin_textbox.value.length < 6) {
+            console.log("Please enter six digits number!");
+            result_message_div.style.visibility = "visible";
+            result_message_checkbox.checked = false;
+            result_message_label.innerHTML = "Please enter six digits number!"
+          } else {
+            result_message_div.style.visibility = "visible";
+            result_message_checkbox.checked = false;
+            result_message_label.innerHTML = "Your Secret Key is not matched!"
+            console.log("Your Secret Key is not matched!");
+          }
+        }
+        else {
+          console.log("Please enter six digits number!");
           result_message_div.style.visibility = "visible";
           result_message_checkbox.checked = false;
-          result_message_label.innerHTML = "Your Secret Key is not matched!"
-          console.log("Your Secret Key is not matched!");
+          result_message_label.innerHTML = "Please enter six digits number!"
         }
-      } else {
-        console.log("Please enter six digits number!");
-        result_message_div.style.visibility = "hidden";
-        result_message_checkbox.checked = false;
-        result_message_label.innerHTML = "Please enter six digits number!"
       }
 
       //Clear button code
@@ -465,6 +474,42 @@
             number_in_textbox_input = number_in_textbox_input + value;
         }
         input_pin_textbox.value = number_in_textbox_input;
+      }
+
+    }
+
+
+    //On Keypress event
+    function myOnKeyPressEvent(e) {
+      var theEventPress = e || window.event;
+
+      const input_pin_textbox = document.getElementById("input-pin-textbox");
+      const result_message_div = document.getElementById("result-message-div");
+      const result_message_checkbox = document.getElementById("result-message-checkbox");
+      const result_message_label = document.getElementById("result-message-label");
+      console.log("Key:" + e.charCode);
+
+      // if (e.charCode >= 48 && e.charCode <= 57) {
+      //   result_message_div.style.visibility = "hidden";
+      // } else {
+      //   result_message_div.style.visibility = "visible";
+      //   result_message_checkbox.checked = false;
+      //   result_message_label.innerHTML = "Please enter only number!"
+      //   input_pin_textbox.value = null;
+      //   input_pin_textbox.innerText = null;
+      // }
+      // Handle paste
+      if (theEventPress.type === 'paste') {
+        key = event.clipboardData.getData('text/plain');
+      } else {
+        // Handle key press
+        var key = theEventPress.keyCode || theEventPress.which;
+        key = String.fromCharCode(key);
+      }
+      var regex = /[0-9]|\./;
+      if (!regex.test(key)) {
+        theEventPress.returnValue = false;
+        if (theEventPress.preventDefault) theEventPress.preventDefault();
       }
     }
 
