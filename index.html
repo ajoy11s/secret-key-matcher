@@ -164,7 +164,109 @@
       font-family: "Open Sans", sans-serif;
     }
 
-    @media only screen and (max-width: 700px) {
+     /* Tablet/Medium Screen responsive code  */
+     @media only screen and (max-width: 1200px) {
+      body {
+        background-color: white;
+        width: 1010px;
+        align-content: center;
+      }
+
+      .main_div {
+        width: 1010px;
+        align-items: center;
+        align-content: center;
+        text-align: center;
+        background-color: white;
+      }
+
+      .left-grid-container {
+        display: block;
+        width: 500px;
+        min-height: 525px;
+        background-color: black;
+        border-radius: 10px 0px 0px 10px;
+        padding-top: 10px;
+        margin-top: 5px;
+      }
+
+      .left-grid-container-div-first {
+        min-height: 100px;
+        margin: 5px auto;
+        align-content: center;
+      }
+
+      .left-grid-container-div-two {
+        margin: 5px auto;
+        min-height: 100px;
+      }
+
+      #btn-generate {
+        background-color: #007BFF;
+        height: 65px;
+        width: 175px;
+        font-size: 18px;
+      }
+
+      .label-generate-number {
+        height: 50px;
+        width: 175px;
+        font-size: 30px;
+        background-color: #333333;
+        border-radius: 5px;
+        border: 3px solid #fff;
+        text-align: center;
+      }
+
+      .right-grid-container {
+        gap: 0px;
+        background-color: black;
+        width: 500px;
+        min-height: 525px;
+        border-radius: 0px 10px 10px 0px;
+        align-content: center;
+        padding-top: 10px;
+        margin-top: 5px;
+      }
+
+      .number-grid-container {
+        display: grid;
+        gap: 10px;
+        background-color: black;
+        padding: 15px;
+        grid-template-columns: 75px 75px 75px;
+        justify-content: center;
+      }
+
+      .item-div-input {
+        grid-column: 1 / span 3;
+        grid-row: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .pin-label-title-div {
+        font-size: 15px;
+        color: white;
+        padding-left: 0px;
+      }
+
+      .pin-input-textbox {
+        height: 70px;
+        width: 250px;
+        background-color: #333333;
+        border-radius: 5px;
+        border-color: #fff;
+        padding-right: 0px;
+        font-size: 35px;
+        text-align: center;
+      }
+
+    }
+
+
+    /* Mobile/Small Screen responsive code  */
+    @media only screen and (max-width: 600px) {
       body {
         background-color: white;
         width: 400px;
