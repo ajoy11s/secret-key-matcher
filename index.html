@@ -98,15 +98,19 @@
     .item-div-input {
       grid-column: 1 / span 4;
       grid-row: 1;
+      text-align: center;
+      justify-content: center;
+      padding: 15px;
+      display: flex;
     }
 
-    label {
+    .pin-label-title-div {
       font-size: 25px;
       color: white;
       padding-left: 0px;
     }
 
-    .input-number {
+    .pin-input-textbox {
       height: 70px;
       width: 200px;
       background-color: #333333;
@@ -162,51 +166,70 @@
 
     @media only screen and (max-width: 700px) {
       body {
-        background-color: black;
-        width: 500px;
+        background-color: white;
+        width: 400px;
+        align-content: center;
       }
 
       .main_div {
         width: 400px;
-        min-height: 1060px;
         align-items: center;
         align-content: center;
         text-align: center;
         background-color: white;
       }
+
       .left-grid-container {
         display: block;
         width: 400px;
-        min-height: 520px;
-        background-color: red;
-        border-radius: 10px 0px 0px 10px;
+        min-height: 300px;
+        background-color: black;
+        border-radius: 10px 10px 0px 0px;
       }
 
       .left-grid-container-div-first {
-        min-height: 250px;
+        min-height: 100px;
         margin: 5px auto;
+        align-content: center;
       }
 
       .left-grid-container-div-two {
         margin: 5px auto;
-        min-height: 250px;
+        min-height: 100px;
+      }
+
+      #btn-generate {
+        background-color: #007BFF;
+        height: 65px;
+        width: 175px;
+        font-size: 18px;
+      }
+
+      .label-generate-number {
+        height: 50px;
+        width: 175px;
+        font-size: 30px;
+        background-color: #333333;
+        border-radius: 5px;
+        border: 3px solid #fff;
+        text-align: center;
       }
 
       .right-grid-container {
         gap: 0px;
-        background-color: burlywood;
-        padding: 10px;
+        background-color: black;
         width: 400px;
         min-height: 525px;
-        border-radius: 0px 10px 10px 0px;
+        border-radius: 0px 0px 10px 10px;
         align-content: center;
         padding-top: 10px;
+        margin-top: 5px;
       }
 
       .number-grid-container {
         display: grid;
         gap: 10px;
-        background-color: blue;
+        background-color: black;
         padding: 15px;
         grid-template-columns: 75px 75px;
         justify-content: center;
@@ -215,17 +238,19 @@
       .item-div-input {
         grid-column: 1 / span 2;
         grid-row: 1;
+        display: flex;
+        flex-direction: column;
       }
 
-      label {
+      .pin-label-title-div {
         font-size: 15px;
         color: white;
         padding-left: 0px;
       }
 
-      .input-number {
+      .pin-input-textbox {
         height: 70px;
-        width: 100px;
+        width: 170px;
         background-color: #333333;
         border-radius: 5px;
         border-color: #fff;
@@ -251,9 +276,9 @@
       </div>
     </div>
     <div class="right-grid-container">
-      <div class="item-div-input" id="item-one">
-        <label>Enter PIN:</label>
-        <input type="text" name="inputPin" class="input-number" id="input-pin-textbox" maxlength="6" />
+      <div class="item-div-input">
+        <div class="pin-label-title-div"><label>Enter PIN:</label></div>
+        <div><input type="text" name="inputPin" class="pin-input-textbox" id="input-pin-textbox" maxlength="6" /></div>
       </div>
       <div class="number-grid-container">
         <div class="grid-item item-one" id="item-one" onclick="showResult('1')">1</div>
