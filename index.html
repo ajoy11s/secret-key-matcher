@@ -6,9 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- Option 1: Include in HTML -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
     rel="stylesheet">
-    <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/main.css">
   <title>Secret Key Matcher</title>
 </head>
 
@@ -45,12 +48,12 @@
         <div class="grid-item btn-item-submit" id="item-result" onclick="showResult('result')">Submit</div>
         <div class="grid-item btn-item-clear" id="item-clear" onclick="showResult('clear')">Clear</div>
       </div>
-      <div id="result-message-div" style="visibility: hidden;">
-        <input type="checkbox" id="result-message-checkbox" name="result-message-checkbox" disabled />
-        <label for="result-message-checkbox" id="result-message-label"></label><br>
+      <div id="result-message-div">
+        <span id="result-message-label"></span>
       </div>
     </div>
   </div>
-  <script src="styles/secretkeymacher.js"></script>
+  <script src="secretkeymacher.js"></script>
 </body>
+
 </html>

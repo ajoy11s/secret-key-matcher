@@ -108,7 +108,7 @@
 
   .pin-label-title-div {
     font-size: 25px;
-    color: white;
+    color: #89664c;
     padding-left: 0px;
     align-content: center;
   }
@@ -162,9 +162,9 @@
 
   #result-message-label {
     text-align: center;
-    color: #fff;
+    color: #e28787;
     font-size: 20px;
-    font-weight: 400;
+    font-weight: bold;
     font-family: "Open Sans", sans-serif;
   }
  /* Tablet/Medium Screen responsive code  */
@@ -217,7 +217,7 @@
   /* Mobile/Small Screen responsive code  */
   @media only screen and (max-width: 600px) {
     body {
-      width: 400px;
+      width: 410px;
     }
 
     .main_div {
