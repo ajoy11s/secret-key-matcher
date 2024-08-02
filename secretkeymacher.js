@@ -64,7 +64,7 @@ function showResult(value) {
 
 //On Keypress event
 function myOnKeyPressEvent(e) {
-    var theEventPress = e || window.event;
+    let theEventPress = e || window.e;
 
     const input_pin_textbox = document.getElementById("input-pin-textbox");
     const result_message_div = document.getElementById("result-message-div");
@@ -83,13 +83,13 @@ function myOnKeyPressEvent(e) {
     // }
     // Handle paste
     if (theEventPress.type === 'paste') {
-        key = event.clipboardData.getData('text/plain');
+        key = e.clipboardData.getData('text/plain');
     } else {
         // Handle key press
-        var key = theEventPress.keyCode || theEventPress.which;
+        let key = theEventPress.keyCode || theEventPress.which;
         key = String.fromCharCode(key);
     }
-    var regex = /[0-9]|\./;
+    let regex = /[0-9]|\./;
     if (!regex.test(key)) {
         theEventPress.returnValue = false;
         if (theEventPress.preventDefault) theEventPress.preventDefault();
