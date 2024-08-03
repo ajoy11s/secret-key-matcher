@@ -37,8 +37,6 @@ function showResult(value) {
     //Clear button code
     if (value == "clear") {
         input_pin_textbox.value = null;
-        result_message_div.style.visibility = "hidden";
-        result_message_checkbox.checked = false;
     }
 
     //Delete button code
