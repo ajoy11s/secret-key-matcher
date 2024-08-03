@@ -114,7 +114,7 @@
   }
 
   .pin-input-textbox {
-    height: 70px;
+    height: 60px;
     width: 200px;
     background-color: #765f5f;
     border-radius: 5px;
@@ -148,6 +148,11 @@
     height: 65px;
     width: 175px;
     font-size: 18px;
+  }
+
+  #btn-generate:hover {
+    font-weight: bold;
+    background-color: #49a949;
   }
 
   .label-generate-number {
@@ -217,21 +222,21 @@
   /* Mobile/Small Screen responsive code  */
   @media only screen and (max-width: 600px) {
     body {
-      width: 410px;
+      width: 365px;
     }
 
     .main_div {
-      width: 400px;
+      width: 350px;
     }
 
     .left-grid-container {
-      width: 400px;
+      width: 350px;
       min-height: 300px;
       border-radius: 10px 10px 0px 0px;
     }
 
     .right-grid-container {
-      width: 400px;
+      width: 350px;
       border-radius: 0px 0px 10px 10px;
       align-content: center;
       padding-top: 10px;
